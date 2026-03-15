@@ -138,6 +138,9 @@ alt-t = '''exec-and-forget
 # Reload config
 alt-shift-r = 'reload-config'
 
+# Screenshot
+alt-shift-s = 'exec-and-forget screencapture -i -c'
+
 # Service mode
 alt-shift-semicolon = 'mode service'
 
