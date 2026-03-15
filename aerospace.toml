@@ -108,7 +108,7 @@ alt-z = '''exec-and-forget
   fi
 '''
 
-alt-c = '''exec-and-forget
+alt-b = '''exec-and-forget
   id=$(aerospace list-windows --all | grep -i chrome | awk '{print $1}' | head -1)
   if [ -n "$id" ]; then
     aerospace focus --window-id $id
@@ -132,6 +132,15 @@ alt-t = '''exec-and-forget
     aerospace focus --window-id $id
   else
     open -a "/Applications/Microsoft Teams.app"
+  fi
+'''
+
+alt-r = '''exec-and-forget
+  id=$(aerospace list-windows --all | grep -i "remote desktop" | awk '{print $1}' | head -1)
+  if [ -n "$id" ]; then
+    aerospace focus --window-id $id
+  else
+    open -a "Microsoft Remote Desktop"
   fi
 '''
 
