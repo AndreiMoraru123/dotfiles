@@ -1,0 +1,152 @@
+config-version = 2
+
+start-at-login = true
+
+after-startup-command = []
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 30
+
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+automatically-unhide-macos-hidden-apps = false
+
+# Float apps that don't make sense tiled
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'dev.zed.zed'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'teams'
+run = 'layout floating'
+
+[key-mapping]
+preset = 'qwerty'
+
+[gaps]
+inner.horizontal = 5
+inner.vertical   = 5
+outer.left       = 5
+outer.right      = 5
+outer.top        = 5
+outer.bottom     = 5
+
+[mode.main.binding]
+
+# Focus
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move windows
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Move window to other monitor
+alt-shift-m = 'move-node-to-monitor --wrap-around next'
+
+# Resize
+alt-shift-minus = 'resize smart -50'
+alt-shift-equal = 'resize smart +50'
+
+# Layout
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+alt-ctrl-f = 'layout floating tiling'
+alt-ctrl-shift-f = 'fullscreen'
+
+# Workspaces
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+
+# Move node to workspace, follow it
+alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+
+# Quick workspace navigation
+alt-tab = 'workspace-back-and-forth'
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+# App launchers
+alt-g = '''exec-and-forget
+  id=$(aerospace list-windows --all | grep -i ghostty | awk '{print $1}' | head -1)
+  if [ -n "$id" ]; then
+    aerospace focus --window-id $id
+  else
+    open -a /Applications/Ghostty.app
+  fi
+'''
+
+alt-z = '''exec-and-forget
+  id=$(aerospace list-windows --all | grep -i zed | awk '{print $1}' | head -1)
+  if [ -n "$id" ]; then
+    aerospace focus --window-id $id
+  else
+    open -a /Applications/Zed.app
+  fi
+'''
+
+alt-c = '''exec-and-forget
+  id=$(aerospace list-windows --all | grep -i chrome | awk '{print $1}' | head -1)
+  if [ -n "$id" ]; then
+    aerospace focus --window-id $id
+  else
+    open -a "/Applications/Google Chrome.app"
+  fi
+'''
+
+alt-f = '''exec-and-forget
+  id=$(aerospace list-windows --all | grep -i finder | awk '{print $1}' | head -1)
+  if [ -n "$id" ]; then
+    aerospace focus --window-id $id
+  else
+    open -a /System/Library/CoreServices/Finder.app
+  fi
+'''
+
+alt-t = '''exec-and-forget
+  id=$(aerospace list-windows --all | grep -i teams | awk '{print $1}' | head -1)
+  if [ -n "$id" ]; then
+    aerospace focus --window-id $id
+  else
+    open -a "/Applications/Microsoft Teams.app"
+  fi
+'''
+
+# Reload config
+alt-shift-r = 'reload-config'
+
+# Service mode
+alt-shift-semicolon = 'mode service'
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating tiling', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+alt-shift-h = ['join-with left', 'mode main']
+alt-shift-j = ['join-with down', 'mode main']
+alt-shift-k = ['join-with up', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']
