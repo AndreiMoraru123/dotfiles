@@ -28,3 +28,9 @@ export TERMINAL="ghostty"
 
 # p10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# aliases
+alias ghostty-config='nvim ~/Library/Application\ Support/com.mitchellh.ghostty/config'
+alias aerospace-config='nvim ~/.aerospace.toml'
+alias karabiner-config='nvim ~/.config/karabiner/karabiner.json'
+alias zshrc='nvim ~/.zshrc'
