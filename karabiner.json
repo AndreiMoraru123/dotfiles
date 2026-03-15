@@ -1,0 +1,40 @@
+{
+  "profiles": [
+    {
+      "name": "Default profile",
+      "selected": true,
+      "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" },
+      "complex_modifications": {
+        "parameters": {
+          "basic.to_if_held_down_threshold_milliseconds": 200
+        },
+        "rules": [
+          {
+            "description": "Ctrl = Cmd everywhere except Ghostty (Voyager only)",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": ["com.mitchellh.ghostty", "dev.zed.zed"]
+                  },
+                  {
+                    "type": "device_if",
+                    "identifiers": [{ "vendor_id": 12951 }]
+                  }
+                ],
+                "from": {
+                  "key_code": "left_control",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to_if_held_down": [{ "key_code": "left_command" }],
+                "to_if_alone": [{ "key_code": "left_control" }]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
