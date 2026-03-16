@@ -108,6 +108,15 @@ alt-z = '''exec-and-forget
   fi
 '''
 
+alt-c = '''exec-and-forget
+  id=$(aerospace list-windows --all | grep -i "code" | awk '{print $1}' | head -1)
+  if [ -n "$id" ]; then
+    aerospace focus --window-id $id
+  else
+    open -a "Visual Studio Code"
+  fi
+'''
+
 alt-b = '''exec-and-forget
   id=$(aerospace list-windows --all | grep -i chrome | awk '{print $1}' | head -1)
   if [ -n "$id" ]; then
