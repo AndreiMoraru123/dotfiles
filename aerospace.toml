@@ -136,11 +136,11 @@ alt-t = '''exec-and-forget
 '''
 
 alt-r = '''exec-and-forget
-  id=$(aerospace list-windows --all | grep -i "remote desktop" | awk '{print $1}' | head -1)
+  id=$(aerospace list-windows --all | grep -i "windows app" | awk '{print $1}' | head -1)
   if [ -n "$id" ]; then
     aerospace focus --window-id $id
   else
-    open -a "Microsoft Remote Desktop"
+    open -a "Windows App"
   fi
 '''
 
