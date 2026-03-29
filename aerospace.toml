@@ -16,7 +16,6 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 automatically-unhide-macos-hidden-apps = false
 
-# Float apps that don't make sense tiled
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 1'
@@ -25,6 +24,7 @@ run = 'move-node-to-workspace 1'
 if.app-id = 'dev.zed.zed'
 run = 'move-node-to-workspace 2'
 
+# # Float apps that don't make sense tiled
 [[on-window-detected]]
 if.app-name-regex-substring = 'finder'
 run = 'layout floating'
@@ -104,16 +104,16 @@ alt-z = '''exec-and-forget
   if [ -n "$id" ]; then
     aerospace focus --window-id $id
   else
-    open -a /Applications/Zed.app
+    /usr/local/bin/zed
   fi
 '''
 
 alt-c = '''exec-and-forget
-  id=$(aerospace list-windows --all | grep -i "code" | awk '{print $1}' | head -1)
+  id=$(aerospace list-windows --all | grep -i clion | awk '{print $1}' | head -1)
   if [ -n "$id" ]; then
     aerospace focus --window-id $id
   else
-    open -a "Visual Studio Code"
+    /usr/local/bin/clion
   fi
 '''
 
