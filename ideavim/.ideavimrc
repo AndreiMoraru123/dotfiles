@@ -1,133 +1,112 @@
-" .ideavimrc is a configuration file for IdeaVim plugin. It uses
-"   the same commands as the original .vimrc configuration.
-" You can find a list of commands here: https://jb.gg/h38q75
-" Find more examples here: https://jb.gg/share-ideavimrc
+" ============================================================
+" .ideavimrc
+" ============================================================
 
-
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
+" --- Options ---
 set scrolloff=5
-
-" Do incremental searching.
 set incsearch
-
-" No noise
 set visualbell
-
-" Smart Join
+set showmode
 set ideajoin
+set number
+set relativenumber
 
-" Sneak motion
+" --- Leader ---
+let mapleader = " "
+
+" --- Plugins ---
+set textobj-indent
+set highlightedyank
+set NERDTree
+set commentary
 set sneak
-
-" Unique letter highlighting
+set multiple-cursors
+set surround
+set peekaboo
 set quickscope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-" Thick cursor
-set guicursor=i:block
+" ============================================================
+" MAPPINGS — all Action mappings MUST use map/nmap/vmap/imap
+" ============================================================
 
-" Show mode
-set showmode
+" Reload this config
+nmap <leader>r <Action>(IdeaVim.ReloadVimRc.reload)
 
-" Don't use Ex mode, use Q for formatting.
-map Q gq
+" Show error
+map <C-k> <Action>(ShowErrorDescription)
 
-" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+" Accept autocomplete dropdown
+imap <C-y> <Action>(EditorChooseLookupItem)
 
-" Highlight copied text
-Plug 'machakann/vim-highlightedyank'
-
-" Commentary plugin
-Plug 'tpope/vim-commentary'
-
-" Vim-like file tree navigation
-Plug 'preservim/nerdtree'
-
-" Operate on indented block lines
-Plug 'michaeljsmith/vim-indent-object'
-
-ideavimsupport+=singleline
-set ideavimsupport=
-
-let mapleader = " "
-
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
+" Reformat
 map \r <Action>(ReformatCode)
 
-"" Map <leader>d to start debug
+" Debug
 map <leader>d <Action>(Debug)
 
-"" Map \b to toggle the breakpoint on the current line
+" Breakpoint
 map \b <Action>(ToggleLineBreakpoint)
 
-"" Map <leader>e to show error hovering around the cursor
-nmap <leader>e <Action>(ShowErrorDescription)
+" Go to next error
+nmap <C-e> <Action>(GotoNextError)
 
-"" Map <leader>ne to go to next error
-nmap <leader>ne <Action>(GotoNextError)
-
-"" Run python console with the file's locals
-map <leader>py <Action>(PyRunFileInConsole)
-
-"" New python file (opens in user folder)
-map <leader>pf <Action>(NewPythonFile)
-
-"" Expand python type annotations (only if collapsed)
-map <leader>xp <Action>(ExpandPythonTypeAnnotations)
-
-"" Collapse python type annotations
-map <leader>cl <Action>(CollapsePythonTypeAnnotations)
-
-"" Stop execution
+" Stop
 map <leader>q <Action>(Stop)
 
-" Move lines up/down with SHIFT + K/J
+" Go to definition
+nmap gd <Action>(GotoDeclaration)
+
+" Go to implementation (works with virtual methods, interfaces, etc.)
+nmap gi <Action>(GotoImplementation)
+
+" Go to super method
+nmap gs <Action>(GotoSuperMethod)
+
+" Find usages
+nmap gr <Action>(FindUsages)
+
+" Go to symbol in file (Cmd-T is macos/jetbrains native for universal search, not in file)
+nmap gO <Action>(FileStructurePopup)
+
+" Switch between header and source files (C/C++)
+nmap gh <Action>(SwitchHeaderSource)
+
+" Code actions (lightbulb)
+nmap <C-.> <Action>(ShowIntentionActions)
+
+" --- Safe noremap mappings (no <Action>, so noremap is fine) ---
+map Q gq
+
+" Move lines in visual mode
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-"" Send current selection to null register so that pasting keeps the previous one in buffer
+" Paste without clobbering register
 vnoremap <leader>p "_dP
 
-"" Send yank to system clipboard
+" Yank to system clipboard
 vnoremap <leader>y "+y
-
-"" Send yank to system clipboard, but in normal mode, to allow extras (like selecting a whole paragraph)
 nnoremap <leader>y "+y
-
-"" Copy the whole file
 nnoremap <leader>Y gg"+yG
 
-"" Uppercase the whole word
+" Case toggles
 nnoremap <Leader>u viwU
-
-"" Lowercase the whole word
 nnoremap <Leader>l viwu
 
-"" Accept autocomplete suggestion
-imap <C-y> <Action>(EditorChooseLookupItem)
+" --- Multiple-Cursors ---
+" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
 
-" Go to symbol
-nmap gO <Action>(GotoSymbol)
-
-" Set Harpoon targets
-nmap <Leader>1 :action SetHarpoon1<CR>
-nmap <Leader>2 :action SetHarpoon2<CR>
-nmap <Leader>3 :action SetHarpoon3<CR>
-nmap <Leader>4 :action SetHarpoon4<CR>
-nmap <Leader>5 :action SetHarpoon5<CR>
-
-" Go to Harpoon targets
-nmap 1 :action GotoHarpoon1<CR>
-nmap 2 :action GotoHarpoon2<CR>
-nmap 3 :action GotoHarpoon3<CR>
-nmap 4 :action GotoHarpoon4<CR>
-nmap 5 :action GotoHarpoon5<CR>
-
-" Show Harpoon UI
-nmap <C-e> :action ShowHarpoon<CR>
-
-" Add current file to Harpoon
-nmap <leader>a :action AddToHarpoon<CR>
+" Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
+" <A-n> is used to enter accented text e.g. ñ
+" Feel free to pick your own mappings that are not affected. I like to use <leader>
+nmap <leader><C-n> <Plug>AllWholeOccurrences
+xmap <leader><C-n> <Plug>AllWholeOccurrences
+nmap <leader>g<C-n> <Plug>AllOccurrences
+xmap <leader>g<C-n> <Plug>AllOccurrences
