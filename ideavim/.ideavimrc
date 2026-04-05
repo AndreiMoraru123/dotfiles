@@ -54,14 +54,20 @@ nmap <C-e> <Action>(GotoNextError)
 " Stop
 map <leader>q <Action>(Stop)
 
-" Go to definition
+" Generate definitions (C++ only)
+nmap gG <Action>(CppGenerateDefinitions)
+
+" Go to declaration or usages (IdeaVim also defaults to this)
 nmap gd <Action>(GotoDeclaration)
+
+" Go to type declaration
+nmap gD <Action>(GotoTypeDeclaration)
 
 " Go to implementation (works with virtual methods, interfaces, etc.)
 nmap gi <Action>(GotoImplementation)
 
-" Go to super method
-nmap gs <Action>(GotoSuperMethod)
+" Go to super method (counterpart to gi, goes up the inheritance hierarchy)
+nmap gI <Action>(GotoSuperMethod)
 
 " Find usages
 nmap gr <Action>(FindUsages)
