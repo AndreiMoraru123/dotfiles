@@ -34,7 +34,7 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 nmap <leader>r <Action>(IdeaVim.ReloadVimRc.reload)
 
 " Show error
-map <C-k> <Action>(ShowErrorDescription)
+map <C-e> <Action>(ShowErrorDescription)
 
 " Accept autocomplete dropdown
 imap <C-y> <Action>(EditorChooseLookupItem)
@@ -49,7 +49,10 @@ map <leader>d <Action>(Debug)
 map \b <Action>(ToggleLineBreakpoint)
 
 " Go to next error
-nmap <C-e> <Action>(GotoNextError)
+nmap ge <Action>(GotoNextError)
+
+" Go to previous error
+nmap gE <Action>(GotoPreviousError)
 
 " Stop
 map <leader>q <Action>(Stop)
