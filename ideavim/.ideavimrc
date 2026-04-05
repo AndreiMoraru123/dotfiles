@@ -72,6 +72,12 @@ nmap gO <Action>(FileStructurePopup)
 " Switch between header and source files (C/C++)
 nmap gh <Action>(SwitchHeaderSource)
 
+" Show include hierarchy (C/C++)
+nmap gH <Action>(CppIncludesHierarchy)
+
+" Call hierarchy (Type hierarchy is <C-h> via IDE)
+nmap gC <Action>(CallHierarchy)
+
 " Code actions (lightbulb)
 nmap <C-.> <Action>(ShowIntentionActions)
 
