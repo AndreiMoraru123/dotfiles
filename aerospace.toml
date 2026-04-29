@@ -33,6 +33,10 @@ run = 'layout floating'
 if.app-name-regex-substring = 'teams'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'windows'
+run = 'layout floating'
+
 [key-mapping]
 preset = 'qwerty'
 
