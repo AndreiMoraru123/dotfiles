@@ -183,7 +183,9 @@ keybindings:
   # Layout/state.
   - commands: ['toggle-tiling-direction']
     bindings: ['alt+slash']
-  - commands: ['toggle-floating --centered']
+  - commands: ['set-tiling']
+    bindings: ['alt+ctrl+t']
+  - commands: ['set-floating --centered']
     bindings: ['alt+ctrl+f']
   - commands: ['toggle-fullscreen']
     bindings: ['alt+ctrl+shift+f']
