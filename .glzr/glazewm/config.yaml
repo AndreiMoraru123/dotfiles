@@ -215,6 +215,8 @@ keybindings:
     bindings: ['alt+p']
   - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName WINWORD -AppUserModelId "Microsoft.Office.WINWORD.EXE.15"']
     bindings: ['alt+w']
+  - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName olk -AppUserModelId "Microsoft.OutlookForWindows_8wekyb3d8bbwe!Microsoft.OutlookforWindows"']
+    bindings: ['alt+o']
 
   # WM controls.
   - commands: ['wm-reload-config']
