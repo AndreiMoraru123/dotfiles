@@ -1,6 +1,3 @@
 [submodule "config.nvim"]
 	path = config.nvim
 	url = https://github.com/AndreiMoraru123/config.nvim.git
-[submodule "fancywm"]
-	path = fancywm
-	url = https://github.com/FancyWM/fancywm.git
