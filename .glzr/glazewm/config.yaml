@@ -116,6 +116,12 @@ window_rules:
       - window_process: { equals: 'Code' }
       - window_process: { equals: 'chrome' }
 
+  - commands: ['move --workspace 3']
+    match:
+      - window_process: { equals: 'EXCEL' }
+      - window_process: { equals: 'POWERPNT' }
+      - window_process: { equals: 'WINWORD' }
+
 binding_modes:
   - name: 'service'
     display_name: 'Service'
@@ -220,4 +226,3 @@ keybindings:
     bindings: ['alt+shift+w']
   - commands: ['wm-exit']
     bindings: ['alt+shift+e']
-
