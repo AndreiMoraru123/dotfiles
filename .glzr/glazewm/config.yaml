@@ -1,0 +1,223 @@
+general:
+  startup_commands: ['shell-exec zebar']
+  shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
+  config_reload_commands: []
+
+  focus_follows_cursor: false
+  toggle_workspace_on_refocus: true
+
+  cursor_jump:
+    enabled: true
+    trigger: 'monitor_focus'
+
+  hide_method: 'cloak'
+  show_all_in_taskbar: false
+
+gaps:
+  scale_with_dpi: true
+  inner_gap: '5px'
+  outer_gap:
+    top: '45px'
+    right: '5px'
+    bottom: '5px'
+    left: '5px'
+
+window_effects:
+  focused_window:
+    border:
+      enabled: true
+      color: '#7dd3fc'
+    hide_title_bar:
+      enabled: false
+    corner_style:
+      enabled: false
+      style: 'square'
+    transparency:
+      enabled: false
+      opacity: '95%'
+
+  other_windows:
+    border:
+      enabled: true
+      color: '#334155'
+    hide_title_bar:
+      enabled: false
+    corner_style:
+      enabled: false
+      style: 'square'
+    transparency:
+      enabled: false
+      opacity: '0%'
+
+window_behavior:
+  initial_state: 'tiling'
+  state_defaults:
+    floating:
+      centered: true
+      shown_on_top: false
+    fullscreen:
+      maximized: false
+      shown_on_top: false
+
+workspaces:
+  # GlazeWM monitor order on this machine:
+  # 0 = far-left external DISPLAY4, 1 = middle laptop DISPLAY1, 2 = big-right DISPLAY2.
+  - name: '1'
+    display_name: '1: Laptop'
+    bind_to_monitor: 1
+    keep_alive: true
+  - name: '2'
+    display_name: '2: Monitor'
+    bind_to_monitor: 2
+    keep_alive: true
+  - name: '3'
+    display_name: '3: TV'
+    bind_to_monitor: 0
+    keep_alive: true
+  - name: '4'
+    display_name: '4'
+  - name: '5'
+    display_name: '5'
+
+window_rules:
+  - commands: ['ignore']
+    match:
+      - window_process: { equals: 'zebar' }
+      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
+        window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
+      - window_process: { equals: 'PowerToys' }
+        window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
+      - window_title: { equals: 'Command Palette' }
+        window_class: { equals: 'WinUIDesktopWin32WindowClass' }
+      - window_process: { equals: 'PowerToys' }
+        window_title: { regex: '.*? - Peek' }
+      - window_process: { equals: 'Lively' }
+        window_class: { regex: 'HwndWrapper' }
+      - window_process: { equals: 'EXCEL' }
+        window_class: { not_regex: 'XLMAIN' }
+      - window_process: { equals: 'WINWORD' }
+        window_class: { not_regex: 'OpusApp' }
+      - window_process: { equals: 'POWERPNT' }
+        window_class: { not_regex: 'PPTFrameClass' }
+
+  - commands: ['set-floating --centered']
+    match:
+      - window_process: { equals: 'ms-teams' }
+      - window_process: { equals: 'Files' }
+      - window_process: { equals: 'ApplicationFrameHost' }
+        window_title: { regex: 'Settings|System|Display' }
+
+  - commands: ['move --workspace 1']
+    match:
+      - window_process: { equals: 'WindowsTerminal' }
+
+  - commands: ['move --workspace 2']
+    match:
+      - window_process: { equals: 'Code' }
+      - window_process: { equals: 'chrome' }
+
+binding_modes:
+  - name: 'service'
+    display_name: 'Service'
+    keybindings:
+      - commands: ['wm-disable-binding-mode --name service']
+        bindings: ['escape', 'enter']
+      - commands: ['wm-reload-config', 'wm-disable-binding-mode --name service']
+        bindings: ['r']
+      - commands: ['toggle-floating --centered', 'wm-disable-binding-mode --name service']
+        bindings: ['f']
+      - commands: ['close', 'wm-disable-binding-mode --name service']
+        bindings: ['back']
+
+keybindings:
+  # Focus.
+  - commands: ['focus --direction left']
+    bindings: ['alt+h', 'alt+left']
+  - commands: ['focus --direction down']
+    bindings: ['alt+j', 'alt+down']
+  - commands: ['focus --direction up']
+    bindings: ['alt+k', 'alt+up']
+  - commands: ['focus --direction right']
+    bindings: ['alt+l', 'alt+right']
+
+  # Move windows.
+  - commands: ['move --direction left']
+    bindings: ['alt+shift+h', 'alt+shift+left']
+  - commands: ['move --direction down']
+    bindings: ['alt+shift+j', 'alt+shift+down']
+  - commands: ['move --direction up']
+    bindings: ['alt+shift+k', 'alt+shift+up']
+  - commands: ['move --direction right']
+    bindings: ['alt+shift+l', 'alt+shift+right']
+
+  # Monitor-role workspaces: laptop terminal, big monitor code, far-left reference.
+  - commands: ['focus --workspace 1']
+    bindings: ['alt+1']
+  - commands: ['focus --workspace 2']
+    bindings: ['alt+2']
+  - commands: ['focus --workspace 3']
+    bindings: ['alt+3']
+  - commands: ['focus --workspace 4']
+    bindings: ['alt+4']
+  - commands: ['focus --workspace 5']
+    bindings: ['alt+5']
+
+  - commands: ['move --workspace 1', 'focus --workspace 1']
+    bindings: ['alt+shift+1']
+  - commands: ['move --workspace 2', 'focus --workspace 2']
+    bindings: ['alt+shift+2']
+  - commands: ['move --workspace 3', 'focus --workspace 3']
+    bindings: ['alt+shift+3']
+  - commands: ['move --workspace 4', 'focus --workspace 4']
+    bindings: ['alt+shift+4']
+  - commands: ['move --workspace 5', 'focus --workspace 5']
+    bindings: ['alt+shift+5']
+
+  # Layout/state.
+  - commands: ['toggle-tiling-direction']
+    bindings: ['alt+slash']
+  - commands: ['toggle-floating --centered']
+    bindings: ['alt+ctrl+f']
+  - commands: ['toggle-fullscreen']
+    bindings: ['alt+ctrl+shift+f']
+  - commands: ['wm-cycle-focus']
+    bindings: ['alt+space']
+  - commands: ['toggle-minimized']
+    bindings: ['alt+m']
+  - commands: ['close']
+    bindings: ['alt+shift+q']
+
+  # Resize.
+  - commands: ['resize --width -50px']
+    bindings: ['alt+shift+oem_minus']
+  - commands: ['resize --width +50px']
+    bindings: ['alt+shift+oem_plus']
+
+  # App launchers.
+  - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName WindowsTerminal -AppUserModelId "Microsoft.WindowsTerminal_8wekyb3d8bbwe!App"']
+    bindings: ['alt+t']
+  - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName Code -Executable "C:\Users\Andrei\AppData\Local\Programs\Microsoft VS Code\Code.exe"']
+    bindings: ['alt+c']
+  - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName chrome -Executable "C:\Users\Andrei\AppData\Local\Google\Chrome SxS\Application\chrome.exe"']
+    bindings: ['alt+b']
+  - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName Files -AppUserModelId "FilesPreview_1y0xx7n9077q4!App"']
+    bindings: ['alt+f']
+  - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName EXCEL -AppUserModelId "Microsoft.Office.EXCEL.EXE.15"']
+    bindings: ['alt+e']
+  - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName POWERPNT -AppUserModelId "Microsoft.Office.POWERPNT.EXE.15"']
+    bindings: ['alt+p']
+  - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName WINWORD -AppUserModelId "Microsoft.Office.WINWORD.EXE.15"']
+    bindings: ['alt+w']
+
+  # WM controls.
+  - commands: ['wm-reload-config']
+    bindings: ['alt+shift+r']
+  - commands: ['wm-enable-binding-mode --name service']
+    bindings: ['alt+shift+oem_semicolon']
+  - commands: ['wm-toggle-pause']
+    bindings: ['alt+shift+p']
+  - commands: ['wm-redraw']
+    bindings: ['alt+shift+w']
+  - commands: ['wm-exit']
+    bindings: ['alt+shift+e']
+
