@@ -104,6 +104,7 @@ window_rules:
     match:
       - window_process: { equals: 'ms-teams' }
       - window_process: { equals: 'Files' }
+      - window_process: { equals: 'WindowsTerminal' }
       - window_process: { equals: 'ApplicationFrameHost' }
         window_title: { regex: 'Settings|System|Display' }
 
