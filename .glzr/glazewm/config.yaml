@@ -50,7 +50,7 @@ window_effects:
       opacity: '0%'
 
 window_behavior:
-  initial_state: 'floating'
+  initial_state: 'tiling'
   state_defaults:
     floating:
       centered: true
