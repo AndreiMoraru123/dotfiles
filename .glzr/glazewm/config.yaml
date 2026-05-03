@@ -105,6 +105,9 @@ window_rules:
       - window_process: { equals: 'ms-teams' }
       - window_process: { equals: 'Files' }
       - window_process: { equals: 'WindowsTerminal' }
+      - window_process: { equals: 'Taskmgr' }
+      - window_process: { equals: 'mmc' }
+        window_title: { regex: '[Dd]evice [Mm]anager' }
       - window_process: { equals: 'ApplicationFrameHost' }
         window_title: { regex: 'Settings|System|Display' }
 
