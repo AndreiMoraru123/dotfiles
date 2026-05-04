@@ -104,6 +104,7 @@ window_rules:
     match:
       - window_process: { equals: 'ms-teams' }
       - window_process: { equals: 'Files' }
+      - window_process: { equals: 'WhatsApp' }
       - window_process: { equals: 'Taskmgr' }
       - window_process: { equals: 'mmc' }
         window_title: { regex: '[Dd]evice [Mm]anager' }
@@ -113,6 +114,8 @@ window_rules:
   - commands: ['move --workspace 1']
     match:
       - window_process: { equals: 'WindowsTerminal' }
+      - window_process: { equals: 'WhatsApp' }
+      - window_process: { equals: 'ms-teams' }
 
   - commands: ['move --workspace 2']
     match:
