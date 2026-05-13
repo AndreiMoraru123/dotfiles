@@ -5,6 +5,8 @@ quick-terminal-animation-duration = 0.2
 background-opacity = 0.7
 background-blur-radius = 20
 
-theme = Ghostty Default Style Dark
+theme = Vesper
+
+font-size = 25
 
 macos-option-as-alt = true

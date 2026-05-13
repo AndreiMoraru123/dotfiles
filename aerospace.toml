@@ -17,6 +17,10 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
+check-further-callbacks = true
+run = 'fullscreen on'
+
+[[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 1'
 
@@ -79,7 +83,8 @@ alt-shift-equal = 'resize smart +50'
 # Layout
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
-alt-ctrl-f = 'layout floating tiling'
+alt-ctrl-f = 'layout floating'
+alt-ctrl-t = 'layout tiling'
 alt-ctrl-shift-f = 'fullscreen'
 
 # Workspaces
