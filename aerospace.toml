@@ -79,7 +79,8 @@ alt-shift-equal = 'resize smart +50'
 # Layout
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
-alt-ctrl-f = 'layout floating tiling'
+alt-ctrl-f = 'layout floating'
+alt-ctrl-t = 'layout tiling'
 alt-ctrl-shift-f = 'fullscreen'
 
 # Workspaces
