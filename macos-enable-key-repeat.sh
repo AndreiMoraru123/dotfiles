@@ -4,15 +4,6 @@ set -eu
 # Disable macOS press-and-hold accent popups so held keys repeat.
 # Useful for VS Code Neovim, JetBrains IDEs, terminal editors, and other apps
 # where holding h/j/k/l should keep moving.
-#
-# Usage:
-#   ./macos-enable-key-repeat.sh
-#   ./macos-enable-key-repeat.sh --all-installed
-#   ./macos-enable-key-repeat.sh com.example.App "/Applications/Example.app"
-#   ./macos-enable-key-repeat.sh --dry-run --all-installed
-#
-# After running, fully quit and reopen affected apps. For stubborn apps, log out
-# and back in so macOS and Electron/AppKit processes reload preferences.
 
 print_usage() {
   cat <<'EOF'
@@ -27,7 +18,7 @@ Options:
 Examples:
   ./macos-enable-key-repeat.sh
   ./macos-enable-key-repeat.sh --all-installed
-  ./macos-enable-key-repeat.sh com.microsoft.VSCode "/Applications/Zed.app"
+  ./macos-enable-key-repeat.sh com.microsoft.VSCode "/Applications/Cursor.app"
 EOF
 }
 
@@ -49,34 +40,6 @@ com.microsoft.VSCodeInsiders
 com.visualstudio.code
 com.vscodium
 com.todesktop.230313mzl4w4u92
-com.exafunction.windsurf
-dev.zed.Zed
-dev.zed.Zed-Preview
-com.sublimetext.4
-com.macromates.TextMate
-com.apple.Terminal
-com.googlecode.iterm2
-com.mitchellh.ghostty
-com.github.wez.wezterm
-net.kovidgoyal.kitty
-dev.warp.Warp-Stable
-com.jetbrains.CLion
-com.jetbrains.WebStorm
-com.jetbrains.intellij
-com.jetbrains.intellij.ce
-com.jetbrains.PyCharm
-com.jetbrains.pycharm
-com.jetbrains.pycharm.ce
-com.jetbrains.goland
-com.jetbrains.rider
-com.jetbrains.rubymine
-com.jetbrains.phpstorm
-com.jetbrains.datagrip
-com.jetbrains.dataspell
-com.jetbrains.AppCode
-com.jetbrains.aqua
-com.jetbrains.gateway
-com.google.android.studio
 EOF
 }
 
@@ -163,7 +126,5 @@ sort -u "$DOMAINS_FILE" |
 cat <<'EOF'
 
 Done. Fully quit and reopen affected apps.
-For VS Code and other Electron apps, use Cmd+Q instead of just reloading a window.
+For VS Code, Cursor, and other Electron apps, use Cmd+Q instead of just reloading a window.
 EOF
-
-
