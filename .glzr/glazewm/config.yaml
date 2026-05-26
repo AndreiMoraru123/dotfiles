@@ -103,7 +103,7 @@ window_rules:
   - commands: ['set-floating --centered']
     match:
       - window_process: { equals: 'ms-teams' }
-      - window_process: { equals: 'Files' }
+      - window_process: { equals: 'FPilot' }
       - window_process: { equals: 'WhatsApp' }
       - window_process: { equals: 'Taskmgr' }
       - window_process: { equals: 'mmc' }
@@ -221,7 +221,7 @@ keybindings:
     bindings: ['alt+b']
   - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName Arc -AppUserModelId "TheBrowserCompany.Arc_ttt1ap7aakyb4!Arc"']
     bindings: ['alt+a']
-  - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName Files -AppUserModelId "FilesPreview_1y0xx7n9077q4!App"']
+  - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName FPilot -Executable "C:\Users\Andrei\AppData\Local\Voidstar\FilePilot\FPilot.exe"']
     bindings: ['alt+f']
   - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName EXCEL -AppUserModelId "Microsoft.Office.EXCEL.EXE.15"']
     bindings: ['alt+e']
