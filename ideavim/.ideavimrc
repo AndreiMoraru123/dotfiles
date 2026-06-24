@@ -44,18 +44,26 @@ map \r <Action>(ReformatCode)
 
 " Debug
 map <leader>d <Action>(Debug)
-
-" Breakpoint
 map \b <Action>(ToggleLineBreakpoint)
+map <leader>q <Action>(Stop)
+
+" Debugging Navigation (from code.lua)
+nmap <leader>c <Action>(Resume)
+nmap <leader>n <Action>(StepOver)
+nmap <leader>s <Action>(StepInto)
+nmap <leader>o <Action>(StepOut)
+nmap <leader>j <Action>(RunToCursor)
+nmap <leader>R <Action>(Rerun)
+
+" Python / Context Execution
+nmap <leader>py <Action>(ContextRun)
+nmap <leader>pd <Action>(ContextDebug)
 
 " Go to next error
 nmap ge <Action>(GotoNextError)
 
 " Go to previous error
 nmap gE <Action>(GotoPreviousError)
-
-" Stop
-map <leader>q <Action>(Stop)
 
 " Generate definitions (C++ only)
 nmap gG <Action>(CppGenerateDefinitions)
