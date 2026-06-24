@@ -215,7 +215,7 @@ keybindings:
   # App launchers.
   - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName WindowsTerminal -AppUserModelId "Microsoft.WindowsTerminal_8wekyb3d8bbwe!App"']
     bindings: ['alt+t']
-  - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName Code -Executable "C:\Users\Andrei\AppData\Local\Programs\Microsoft VS Code\Code.exe"']
+  - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName clion64 -Executable "C:\Users\Andrei\AppData\Local\Programs\CLion\bin\clion64.exe"']
     bindings: ['alt+c']
   - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName Arc -AppUserModelId "TheBrowserCompany.Arc_ttt1ap7aakyb4!Arc"']
     bindings: ['alt+b']
