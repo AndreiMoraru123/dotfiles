@@ -2,6 +2,8 @@
 " .ideavimrc
 " ============================================================
 
+set VimEverywhere
+
 " --- Options ---
 set scrolloff=5
 set incsearch
@@ -108,16 +110,15 @@ vnoremap K :m '<-2<CR>gv=gv
 " Paste without clobbering register
 vnoremap <leader>p "_dP
 
-" Yank to system clipboard
-vnoremap <leader>y "+y
-nnoremap <leader>y "+y
+" Yank/Paste to system clipboard
+set clipboard+=unnamed
 nnoremap <leader>Y gg"+yG
 
 " Case toggles
 nnoremap <Leader>u viwU
 nnoremap <Leader>l viwu
 
-" --- Multiple-Cursors (Aligned with Zed) ---
+" Multiple-Cursors (adapted from Zed)
 nmap gl <Plug>NextWholeOccurrence
 xmap gl <Plug>NextWholeOccurrence
 nmap gL <Plug>RemoveOccurrence
@@ -131,3 +132,4 @@ xmap gI <Action>(EditorAddCaretPerSelectedLine)^
 
 xmap g> <Plug>SkipOccurrence
 xmap g< <Plug>RemoveOccurrence
+
