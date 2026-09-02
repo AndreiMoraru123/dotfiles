@@ -21,6 +21,7 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # Aliases
 alias vim=nvim
+alias cc=claude
 
 # Editor
 export EDITOR=nvim
@@ -34,3 +35,6 @@ alias ghostty-config='nvim ~/Library/Application\ Support/com.mitchellh.ghostty/
 alias aerospace-config='nvim ~/.aerospace.toml'
 alias karabiner-config='nvim ~/.config/karabiner/karabiner.json'
 alias zshrc='nvim ~/.zshrc'
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="/opt/homebrew/opt/lldb/bin:$PATH"
