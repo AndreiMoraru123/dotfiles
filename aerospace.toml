@@ -17,15 +17,11 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
-check-further-callbacks = true
-run = 'fullscreen on'
-
-[[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-id = 'dev.zed.zed'
+if.app-id = 'dev.zed.Zed'
 run = 'move-node-to-workspace 2'
 
 # # Float apps that don't make sense tiled
@@ -105,78 +101,19 @@ alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
 alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-# App launchers
-alt-a = '''exec-and-forget
-  id=$(aerospace list-windows --all | grep -i arc | awk '{print $1}' | head -1)
-  if [ -n "$id" ]; then
-    aerospace focus --window-id $id
-  else
-    open -a /Applications/Arc.app
-  fi
-'''
-
-alt-g = '''exec-and-forget
-  id=$(aerospace list-windows --all | grep -i ghostty | awk '{print $1}' | head -1)
-  if [ -n "$id" ]; then
-    aerospace focus --window-id $id
-  else
-    open -a /Applications/Ghostty.app
-  fi
-'''
-
-alt-z = '''exec-and-forget
-  id=$(aerospace list-windows --all | grep -i zed | awk '{print $1}' | head -1)
-  if [ -n "$id" ]; then
-    aerospace focus --window-id $id
-  else
-    open -a zed
-  fi
-'''
-
-alt-c = '''exec-and-forget
-  id=$(aerospace list-windows --all | grep -i claude | awk '{print $1}' | head -1)
-  if [ -n "$id" ]; then
-    aerospace focus --window-id $id
-  else
-    open -a claude
-  fi
-'''
-
-alt-b = '''exec-and-forget
-  id=$(aerospace list-windows --all | grep -i chrome | awk '{print $1}' | head -1)
-  if [ -n "$id" ]; then
-    aerospace focus --window-id $id
-  else
-    open -a "/Applications/Google Chrome.app"
-  fi
-'''
-
-alt-f = '''exec-and-forget
-  id=$(aerospace list-windows --all | grep -i finder | awk '{print $1}' | head -1)
-  if [ -n "$id" ]; then
-    aerospace focus --window-id $id
-  else
-    open -a /System/Library/CoreServices/Finder.app
-  fi
-'''
-
-alt-t = '''exec-and-forget
-  id=$(aerospace list-windows --all | grep -i teams | awk '{print $1}' | head -1)
-  if [ -n "$id" ]; then
-    aerospace focus --window-id $id
-  else
-    open -a "/Applications/Microsoft Teams.app"
-  fi
-'''
-
-alt-r = '''exec-and-forget
-  id=$(aerospace list-windows --all | grep -i "windows app" | awk '{print $1}' | head -1)
-  if [ -n "$id" ]; then
-    aerospace focus --window-id $id
-  else
-    open -a "Windows App"
-  fi
-'''
+# App launchers. Focus the app, cycling through its windows if it is already
+# focused, or launch it if it has none. Matching is on bundle id -- the previous
+# inline greps also matched window titles, so alt-a hit "Google Search".
+# See scripts/focus-or-launch.sh.
+alt-a = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh company.thebrowser.Browser'
+alt-g = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.mitchellh.ghostty'
+alt-z = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh dev.zed.Zed'
+alt-c = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.microsoft.VSCode'
+alt-b = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.google.Chrome'
+alt-f = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.apple.finder'
+alt-t = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.microsoft.teams2'
+alt-o = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.microsoft.Outlook'
+alt-r = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.microsoft.rdc.macos'
 
 # Reload config
 alt-shift-r = 'reload-config'
