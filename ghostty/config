@@ -11,3 +11,6 @@ font-family = "Iosevka Mayukai Original"
 font-size = 20
 
 macos-option-as-alt = true
+
+# Native tabs are separate NSWindows; AeroSpace tiles them against each other.
+keybind = super+t=new_window

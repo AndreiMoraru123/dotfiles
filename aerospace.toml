@@ -24,6 +24,18 @@ run = 'move-node-to-workspace 1'
 if.app-id = 'dev.zed.Zed'
 run = 'move-node-to-workspace 2'
 
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = 'move-node-to-workspace 2'
+
 # # Float apps that don't make sense tiled
 [[on-window-detected]]
 if.app-name-regex-substring = 'finder'
@@ -40,6 +52,14 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-name-regex-substring = 'activity'
 run = 'layout floating'
+
+# Terminal on the laptop, code and browser on the external; unmatched falls back to main.
+[workspace-to-monitor-force-assignment]
+1 = 'built-in'
+2 = ['LEN', 'secondary']
+3 = ['LEN', 'secondary']
+4 = 'built-in'
+5 = 'built-in'
 
 [key-mapping]
 preset = 'qwerty'
@@ -67,7 +87,7 @@ alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
 # Move window to other monitor
-alt-shift-m = 'move-node-to-monitor --wrap-around next'
+alt-shift-m = 'move-node-to-monitor --wrap-around --focus-follows-window next'
 
 # Minimize window
 alt-m = 'macos-native-minimize'
