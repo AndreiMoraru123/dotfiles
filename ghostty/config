@@ -5,7 +5,7 @@ quick-terminal-animation-duration = 0.2
 background-opacity = 0.7
 background-blur-radius = 20
 
-theme = Vesper
+theme = Ayu
 
 font-family = "Iosevka Mayukai Original"
 font-size = 20
