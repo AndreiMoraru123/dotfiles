@@ -134,6 +134,7 @@ alt-f = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-l
 alt-t = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.microsoft.teams2'
 alt-o = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.microsoft.Outlook'
 alt-r = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.microsoft.rdc.macos'
+alt-u = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh ai.unsloth.studio'
 
 # Reload config
 alt-shift-r = 'reload-config'
