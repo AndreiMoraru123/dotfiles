@@ -5,8 +5,12 @@ quick-terminal-animation-duration = 0.2
 background-opacity = 0.7
 background-blur-radius = 20
 
-theme = Vesper
+theme = Ayu
 
-font-size = 25
+font-family = "Iosevka Mayukai Original"
+font-size = 20
 
 macos-option-as-alt = true
+
+# Native tabs are separate NSWindows; AeroSpace tiles them against each other.
+keybind = super+t=new_window
