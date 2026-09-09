@@ -221,6 +221,8 @@ keybindings:
     bindings: ['alt+b']
   - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName "Antigravity IDE" -Executable "C:\Users\Andrei\AppData\Local\Programs\Antigravity IDE\Antigravity IDE.exe"']
     bindings: ['alt+a']
+  - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName Code -Executable "C:\Users\Andrei\AppData\Local\Programs\Microsoft VS Code\Code.exe"']
+    bindings: ['alt+v']
   - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName FPilot -Executable "C:\Users\Andrei\AppData\Local\Voidstar\FilePilot\FPilot.exe"']
     bindings: ['alt+f']
   - commands: ['shell-exec --hide-window powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Andrei\.glzr\glazewm\scripts\focus-or-launch.ps1" -ProcessName EXCEL -AppUserModelId "Microsoft.Office.EXCEL.EXE.15"']
