@@ -21,6 +21,10 @@ if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
+if.app-id = 'com.cmuxterm.app'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
 if.app-id = 'dev.zed.Zed'
 run = 'move-node-to-workspace 2'
 
@@ -128,7 +132,8 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-a = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh company.thebrowser.Browser'
 alt-g = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.mitchellh.ghostty'
 alt-z = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh dev.zed.Zed'
-alt-c = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.microsoft.VSCode'
+alt-c = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.cmuxterm.app'
+alt-v = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.microsoft.VSCode'
 alt-b = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.google.Chrome'
 alt-f = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.apple.finder'
 alt-t = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.microsoft.teams2'
