@@ -38,3 +38,5 @@ alias zshrc='nvim ~/.zshrc'
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/opt/homebrew/opt/lldb/bin:$PATH"
+
+export BAT_THEME="Dracula"
