@@ -17,7 +17,13 @@
       "space f": "editor::Format",
     },
   },
-
+  // --- Edit prediction ---
+  {
+    "context": "Editor && edit_prediction",
+    "bindings": {
+      "tab": "editor::AcceptEditPrediction",
+    },
+  },
   // ---- Only while the debugger is stopped at a breakpoint ----
   {
     "context": "debugger_stopped > (vim_mode == normal && !menu)",
@@ -28,7 +34,6 @@
       "space o": "debugger::StepOut",
     },
   },
-
   // ---- Only while a debug session exists (running or stopped) ----
   {
     "context": "debugger_session > (vim_mode == normal && !menu)",
