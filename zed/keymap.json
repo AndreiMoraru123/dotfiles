@@ -6,17 +6,48 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
+  // --- General ---
   {
-    "context": "Workspace",
+    "context": "vim_mode == normal && !menu",
     "bindings": {
-      "shift shift": "file_finder::Toggle"
+      "space t": "task::Spawn",
+      "space z z": "workspace::ToggleZoom",
+      "space z f": "zed::ToggleFullScreen",
+      "g H": "editor::SwitchSourceHeader",
+      "space f": "editor::Format",
+    },
+  },
+
+  // ---- Only while the debugger is stopped at a breakpoint ----
+  {
+    "context": "debugger_stopped > (vim_mode == normal && !menu)",
+    "bindings": {
+      "space c": "debugger::Continue",
+      "space n": "debugger::StepOver",
+      "space s": "debugger::StepInto",
+      "space o": "debugger::StepOut",
+    },
+  },
+
+  // ---- Only while a debug session exists (running or stopped) ----
+  {
+    "context": "debugger_session > (vim_mode == normal && !menu)",
+    "bindings": {
+      "space r": "debugger::Restart",
+      "space q": "debugger::Stop",
     },
   },
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "\\ b" : "editor::ToggleBreakpoint",
-    }
+      "\\ b": "editor::ToggleBreakpoint",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift shift": "file_finder::Toggle",
+    },
   },
   {
     "context": "Editor && vim_mode == insert",
