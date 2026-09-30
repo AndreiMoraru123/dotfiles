@@ -9,7 +9,8 @@
 {
   "cli_default_open_behavior": "existing_window",
   "edit_predictions": {
-    "provider": "zed",
+    "mode": "eager",
+    "provider": "copilot",
     "open_ai_compatible_api": {
       // llama-server on 8013, see ~/.claude/docs/local-fim-models.md
       "api_url": "http://127.0.0.1:8013/v1/completions",
@@ -64,8 +65,8 @@
     "show": "always",
   },
   "cursor_blink": true,
-  "cursor_animation" : {
-    "enabled": true
+  "cursor_animation": {
+    "enabled": true,
   },
   "buffer_font_family": "Iosevka Mayukai Original",
   "auto_indent_on_paste": false,
