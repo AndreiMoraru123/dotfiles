@@ -18,7 +18,7 @@ automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace 1'
+run = ['move-node-to-workspace 1', 'layout accordion']
 
 [[on-window-detected]]
 if.app-id = 'com.cmuxterm.app'
@@ -26,19 +26,19 @@ run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
 if.app-id = 'dev.zed.Zed'
-run = 'move-node-to-workspace 3'
+run = ['move-node-to-workspace 3', 'layout accordion']
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace 2'
+run = ['move-node-to-workspace 2', 'layout accordion']
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace 2'
+run = ['move-node-to-workspace 2', 'layout accordion']
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
-run = 'move-node-to-workspace 2'
+run = ['move-node-to-workspace 2', 'layout accordion']
 
 # # Float apps that don't make sense tiled
 [[on-window-detected]]
