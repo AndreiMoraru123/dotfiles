@@ -40,6 +40,10 @@ run = ['move-node-to-workspace 2', 'layout accordion']
 if.app-id = 'company.thebrowser.Browser'
 run = ['move-node-to-workspace 2', 'layout accordion']
 
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+run = 'move-node-to-workspace 5'
+
 # # Float apps that don't make sense tiled
 [[on-window-detected]]
 if.app-name-regex-substring = 'finder'
