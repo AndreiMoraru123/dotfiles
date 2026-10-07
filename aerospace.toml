@@ -67,7 +67,7 @@ run = 'layout floating'
 2 = ['LEN', 'secondary']
 3 = ['LEN', 'secondary']
 4 = 'built-in'
-5 = 'built-in'
+5 = ['LEN', 'secondary']
 
 [key-mapping]
 preset = 'qwerty'
