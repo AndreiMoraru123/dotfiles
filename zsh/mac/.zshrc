@@ -21,7 +21,6 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # Aliases
 alias vim=nvim
-alias cc=claude
 
 # Editor
 export EDITOR=nvim
