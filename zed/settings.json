@@ -23,14 +23,16 @@
     "Python": {
       "format_on_save": "on",
       "language_servers": [
-        // Enable ty, disable the rest
+        // Enable ty & ruff, disable the rest
         "ty",
+        "ruff",
         "!basedpyright",
         "!pyright",
         "!pylsp",
       ],
       "code_actions_on_format": {
         "source.organizeImports.ruff": true,
+        "source.fixAll.ruff": true,
       },
       "formatter": {
         "language_server": {
@@ -70,7 +72,7 @@
   },
   "buffer_font_family": "Iosevka Mayukai Original",
   "auto_indent_on_paste": false,
-  "semantic_tokens": "combined",
+  "semantic_tokens": "off",
   "format_on_save": "off",
   "wrap_guides": [120],
   "session": {
