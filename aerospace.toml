@@ -44,6 +44,10 @@ run = ['move-node-to-workspace 2', 'layout accordion']
 if.app-id = 'com.microsoft.Outlook'
 run = 'move-node-to-workspace 5'
 
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'move-node-to-workspace 6'
+
 # # Float apps that don't make sense tiled
 [[on-window-detected]]
 if.app-name-regex-substring = 'finder'
@@ -68,6 +72,7 @@ run = 'layout floating'
 3 = ['LEN', 'secondary']
 4 = 'built-in'
 5 = ['LEN', 'secondary']
+6 = ['LEN', 'secondary']
 
 [key-mapping]
 preset = 'qwerty'
@@ -117,6 +122,7 @@ alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
 
 # Move node to workspace, follow it
 alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
@@ -124,6 +130,7 @@ alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
 alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
 alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
 alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
 
 # Quick workspace navigation
 alt-tab = 'workspace-back-and-forth'
@@ -136,7 +143,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-a = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh company.thebrowser.Browser'
 alt-g = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.mitchellh.ghostty'
 alt-z = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh dev.zed.Zed'
-alt-c = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.cmuxterm.app'
+alt-c = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.anthropic.claudefordesktop'
 alt-v = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.microsoft.VSCode'
 alt-b = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.google.Chrome'
 alt-f = 'exec-and-forget /Users/andrei.moraru/Andrei/dotfiles/scripts/focus-or-launch.sh com.apple.finder'
